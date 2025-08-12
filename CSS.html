@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Code Amigos: A Missão Cósmica do CSS</title>
+</head>
+<body data-theme="light" data-story-style="space">
+<div class="particles" id="particles"></div>
+<div class="container">
+  <h1 id="main-title">🌌 Code Amigos: A Missão Cósmica do CSS</h1>
+  <div class="nav">
+
+       <select id="estiloSelect" onchange="mudarPagina()">
+    <option value="">Estilo: CSS e HTML5</option>
+    <option value="index.html">Estilo: PYTHON</option>
+    <option value="html.html">Estilo: HTML5</option>
+    <option value="editor.html">Estilo: Editor de Código</option>
+  </select>
+
+  <script>
+    function mudarPagina() {
+      var select = document.getElementById("estiloSelect");
+      var valor = select.value;
+      if (valor) {
+        window.location.href = valor;
+      }
+    }
+  </script>
+    <select id="sala-nav" onchange="scrollToSala(this.value)">
+      <option value="">Escolha uma Sala...</option>
+      <option value="sala1">Sala 1: <span class="sala-title">Ativar CSS no Painel</span></option>
+      <option value="sala2">Sala 2: <span class="sala-title">Selecionar Elementos Estelares</span></option>
+      <option value="sala3">Sala 3: <span class="sala-title">Controlar Cores Estelares</span></option>
+      <option value="sala4">Sala 4: <span class="sala-title">Estilizar Textos Cósmicos</span></option>
+      <option value="sala5">Sala 5: <span class="sala-title">Gerenciar o Box Model</span></option>
+      <option value="sala6">Sala 6: <span class="sala-title">Posicionar Módulos</span></option>
+      <option value="sala7">Sala 7: <span class="sala-title">Alinhar com Flexbox</span></option>
+      <option value="sala8">Sala 8: <span class="sala-title">Organizar com Grid</span></option>
+      <option value="sala9">Sala 9: <span class="sala-title">Adicionar Efeitos Visuais</span></option>
+      <option value="sala10">Sala 10: <span class="sala-title">Estilizar Links Estelares</span></option>
+      <option value="sala11">Sala 11: <span class="sala-title">Controlar Formulários</span></option>
+      <option value="sala12">Sala 12: <span class="sala-title">Responsividade Cósmica</span></option>
+      <option value="sala13">Sala 13: <span class="sala-title">Animações Estelares</span></option>
+      <option value="sala14">Sala 14: <span class="sala-title">Interface Web Galáctica</span></option>
+    </select>
+    <button class="reset-all-btn" onclick="resetAll()">Recomeçar Missão</button>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Mudar tema"><span class="theme-icon">🌙</span> Tema</button>
+  </div>
+  <div class="progress-bar">
+    <div class="progress" id="progress"></div>
+    <div class="milestone" style="left: 25%;"><span class="milestone-label">Iniciante</span></div>
+    <div class="milestone" style="left: 50%;"><span class="milestone-label">Aprendiz</span></div>
+    <div class="milestone" style="left: 75%;"><span class="milestone-label">Mestre</span></div>
+  </div>
+  <div class="score">Pontos: <span id="score">0</span>/32</div>
+  <div class="selo-tracker" id="selo-tracker"></div>
+  <p id="intro-text">👋 Saudações, jovem astronauta! Eu sou o <strong>Comandante Clavio</strong>, seu guia na <strong>Missão Cósmica do CSS</strong>. Vamos estilizar a <strong>Interface Web Galáctica</strong> com cores, layouts e efeitos! Cada sala tem desafios para dominar CSS. Preparado? 🚀</p>
+
+  <h2 id="sala1">✨ Sala 1: <span class="sala-title">Ativar CSS no Painel</span></h2>
+  <p class="sala-desc">CSS estiliza o HTML, como controles visuais da nave. Conecte CSS ao HTML com a tag <code>&lt;link&gt;</code>.</p>
+  <pre><code>&lt;head&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;</code></pre>
+  <p><strong>Como usar:</strong> Use <code>&lt;link rel="stylesheet" href="arquivo.css"&gt;</code> no <code>&lt;head&gt;</code>.</p>
+  <div class="questao">
+    <p><strong>Desafio 1:</strong> Qual tag conecta o CSS ao HTML?</p>
+    <input type="text" id="q1" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q1', 'link', 'Nome da tag.', 'msg1', 'sala1')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg1', 'Vai no head e aponta para o arquivo CSS.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q1', 'msg1')">Limpar</button>
+    <p id="msg1" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 2:</strong> Qual atributo aponta para o arquivo CSS?</p>
+    <input type="text" id="q2" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q2', 'href', 'Nome do atributo.', 'msg2', 'sala1')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg2', 'Define o caminho do arquivo CSS.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q2', 'msg2')">Limpar</button>
+    <p id="msg2" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Ótimo trabalho!</strong> O painel CSS está ativado. Vamos para a próxima sala! 🚪</p>
+
+  <h2 id="sala2">🔍 Sala 2: <span class="sala-title">Selecionar Elementos Estelares</span></h2>
+  <p class="sala-desc">Seletores CSS são como radares que encontram elementos HTML. Exemplo:</p>
+  <pre><code>p {
+  color: blue;
+}</code></pre>
+  <p><strong>Como usar:</strong> Seletores como <code>p</code>, <code>.class</code>, <code>#id</code> aplicam estilos.</p>
+  <div class="questao">
+    <p><strong>Desafio 3:</strong> Qual seletor estiliza todos os parágrafos?</p>
+    <input type="text" id="q3" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q3', 'p', 'Nome do seletor.', 'msg3', 'sala2')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg3', 'É o nome da tag HTML.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q3', 'msg3')">Limpar</button>
+    <p id="msg3" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 4:</strong> Como selecionar um elemento com <code>id="nave"</code>?</p>
+    <input type="text" id="q4" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q4', '#nave', 'Escreva o seletor.', 'msg4', 'sala2')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg4', 'Use # para IDs.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q4', 'msg4')">Limpar</button>
+    <p id="msg4" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Perfeito!</strong> Você domina seletores. Continue, astronauta! 🚀</p>
+
+  <h2 id="sala3">🎨 Sala 3: <span class="sala-title">Controlar Cores Estelares</span></h2>
+  <p class="sala-desc">Propriedades como <code>color</code> e <code>background-color</code> pintam a interface. Veja:</p>
+  <pre><code>.painel {
+  background-color: black;
+  color: white;
+}</code></pre>
+  <p><strong>Como usar:</strong> Use nomes de cores, hex, RGB, etc.</p>
+  <div class="questao">
+    <p><strong>Desafio 5:</strong> O que faz <code>color: blue;</code>?</p>
+    <input type="text" id="q5" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q5', 'Muda o texto para azul', 'Descreva o efeito.', 'msg5', 'sala3')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg5', 'Afeta a cor do texto.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q5', 'msg5')">Limpar</button>
+    <p id="msg5" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 6:</strong> Qual propriedade muda o fundo?</p>
+    <input type="text" id="q6" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q6', 'background-color', 'Nome da propriedade.', 'msg6', 'sala3')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg6', 'Define a cor do fundo do elemento.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q6', 'msg6')">Limpar</button>
+    <p id="msg6" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Boa, astronauta!</strong> As cores estão vibrantes. Vamos adiante! 🎨</p>
+
+  <h2 id="sala4">✍️ Sala 4: <span class="sala-title">Estilizar Textos Cósmicos</span></h2>
+  <p class="sala-desc">Propriedades como <code>font-size</code>, <code>font-family</code> controlam textos. Veja:</p>
+  <pre><code>h1 {
+  font-size: 24px;
+  font-family: Arial;
+}</code></pre>
+  <p><strong>Como usar:</strong> Ajuste tamanho, fonte e peso do texto.</p>
+  <div class="questao">
+    <p><strong>Desafio 7:</strong> O que faz <code>font-size: 16px;</code>?</p>
+    <input type="text" id="q7" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q7', 'Define o tamanho do texto', 'Descreva o efeito.', 'msg7', 'sala4')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg7', 'Controla o tamanho da fonte.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q7', 'msg7')">Limpar</button>
+    <p id="msg7" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 8:</strong> Qual propriedade muda a fonte?</p>
+    <input type="text" id="q8" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q8', 'font-family', 'Nome da propriedade.', 'msg8', 'sala4')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg8', 'Define o tipo de fonte, como Arial.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q8', 'msg8')">Limpar</button>
+    <p id="msg8" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Você é demais!</strong> Os textos estão estelares. Próxima sala! ✍️</p>
+
+  <h2 id="sala5">📏 Sala 5: <span class="sala-title">Gerenciar o Box Model</span></h2>
+  <p class="sala-desc">O Box Model controla margens, bordas e preenchimento. Veja:</p>
+  <pre><code>.modulo {
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid white;
+}</code></pre>
+  <p><strong>Como usar:</strong> <code>margin</code> é o espaço externo, <code>padding</code> interno, <code>border</code> é a borda.</p>
+  <div class="questao">
+    <p><strong>Desafio 9:</strong> O que faz <code>padding: 15px;</code>?</p>
+    <input type="text" id="q9" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q9', 'Adiciona espaço interno', 'Descreva o efeito.', 'msg9', 'sala5')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg9', 'Aumenta o espaço dentro do elemento.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q9', 'msg9')">Limpar</button>
+    <p id="msg9" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 10:</strong> Qual propriedade define a borda?</p>
+    <input type="text" id="q10" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q10', 'border', 'Nome da propriedade.', 'msg10', 'sala5')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg10', 'Define o contorno do elemento.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q10', 'msg10')">Limpar</button>
+    <p id="msg10" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 11:</strong> Qual propriedade controla o espaço externo?</p>
+    <input type="text" id="q11" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q11', 'margin', 'Nome da propriedade.', 'msg11', 'sala5')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg11', 'Controla o espaço fora do elemento.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q11', 'msg11')">Limpar</button>
+    <p id="msg11" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Espaço controlado!</strong> Você domina o Box Model. Vamos continuar! 📏</p>
+
+  <h2 id="sala6">📍 Sala 6: <span class="sala-title">Posicionar Módulos</span></h2>
+  <p class="sala-desc">A propriedade <code>position</code> move elementos, como módulos da nave. Veja:</p>
+  <pre><code>.nave {
+  position: absolute;
+  top: 10px;
+}</code></pre>
+  <p><strong>Como usar:</strong> Use <code>position: static, relative, absolute, fixed</code> com <code>top</code>, <code>left</code>, etc.</p>
+  <div class="questao">
+    <p><strong>Desafio 12:</strong> O que faz <code>position: fixed;</code>?</p>
+    <input type="text" id="q12" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q12', 'Fixa na tela', 'Descreva o efeito.', 'msg12', 'sala6')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg12', 'O elemento fica fixo ao rolar a página.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q12', 'msg12')">Limpar</button>
+    <p id="msg12" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 13:</strong> Qual propriedade define a posição vertical?</p>
+    <input type="text" id="q13" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q13', 'top', 'Nome da propriedade.', 'msg13', 'sala6')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg13', 'Controla a distância do topo.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q13', 'msg13')">Limpar</button>
+    <p id="msg13" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Módulos posicionados!</strong> Você domina posição. Próxima sala! 📍</p>
+
+  <h2 id="sala7">🤝 Sala 7: <span class="sala-title">Alinhar com Flexbox</span></h2>
+  <p class="sala-desc">Flexbox alinha elementos, como painéis da nave. Veja:</p>
+  <pre><code>.container {
+  display: flex;
+  justify-content: center;
+}</code></pre>
+  <p><strong>Como usar:</strong> <code>display: flex;</code> ativa o flexbox, <code>justify-content</code> alinha horizontalmente.</p>
+  <div class="questao">
+    <p><strong>Desafio 14:</strong> O que faz <code>justify-content: space-between;</code>?</p>
+    <input type="text" id="q14" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q14', 'Espalha elementos com espaço entre eles', 'Descreva o efeito.', 'msg14', 'sala7')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg14', 'Distribui os elementos com espaço igual entre eles.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q14', 'msg14')">Limpar</button>
+    <p id="msg14" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 15:</strong> Qual propriedade ativa o flexbox?</p>
+    <input type="text" id="q15" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q15', 'display', 'Nome da propriedade.', 'msg15', 'sala7')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg15', 'Usada com o valor flex.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q15', 'msg15')">Limpar</button>
+    <p id="msg15" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Alinhamento perfeito!</strong> Você domina flexbox. Vamos adiante! 🤝</p>
+
+  <h2 id="sala8">📐 Sala 8: <span class="sala-title">Organizar com Grid</span></h2>
+  <p class="sala-desc">CSS Grid organiza layouts, como setores da nave. Veja:</p>
+  <pre><code>.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}</code></pre>
+  <p><strong>Como usar:</strong> <code>display: grid;</code> ativa o grid, <code>grid-template-columns</code> define colunas.</p>
+  <div class="questao">
+    <p><strong>Desafio 16:</strong> O que faz <code>grid-template-columns: 1fr 1fr;</code>?</p>
+    <input type="text" id="q16" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q16', 'Cria duas colunas de tamanho igual', 'Descreva o efeito.', 'msg16', 'sala8')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg16', 'Divide o grid em duas colunas iguais.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q16', 'msg16')">Limpar</button>
+    <p id="msg16" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 17:</strong> Qual propriedade ativa o grid?</p>
+    <input type="text" id="q17" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q17', 'display', 'Nome da propriedade.', 'msg17', 'sala8')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg17', 'Usada com o valor grid.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q17', 'msg17')">Limpar</button>
+    <p id="msg17" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Layout perfeito!</strong> Você domina grid. Próxima sala! 📐</p>
+
+  <h2 id="sala9">✨ Sala 9: <span class="sala-title">Adicionar Efeitos Visuais</span></h2>
+  <p class="sala-desc">Propriedades como <code>box-shadow</code> e <code>opacity</code> criam efeitos. Veja:</p>
+  <pre><code>.modulo {
+  box-shadow: 0 0 10px white;
+  opacity: 0.8;
+}</code></pre>
+  <p><strong>Como usar:</strong> <code>box-shadow</code> adiciona sombras, <code>opacity</code> controla transparência.</p>
+  <div class="questao">
+    <p><strong>Desafio 18:</strong> O que faz <code>box-shadow: 0 0 5px blue;</code>?</p>
+    <input type="text" id="q18" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q18', 'Adiciona sombra azul', 'Descreva o efeito.', 'msg18', 'sala9')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg18', 'Cria um contorno brilhante ao redor do elemento.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q18', 'msg18')">Limpar</button>
+    <p id="msg18" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 19:</strong> O que faz <code>opacity: 0.5;</code>?</p>
+    <input type="text" id="q19" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q19', 'Torna o elemento semitransparente', 'Descreva o efeito.', 'msg19', 'sala9')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg19', 'Reduz a visibilidade do elemento.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q19', 'msg19')">Limpar</button>
+    <p id="msg19" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Efeitos estelares!</strong> Você domina visuais. Vamos adiante! ✨</p>
+
+  <h2 id="sala10">🔗 Sala 10: <span class="sala-title">Estilizar Links Estelares</span></h2>
+  <p class="sala-desc">Pseudo-classes como <code>:hover</code> estilizam links. Veja:</p>
+  <pre><code>a:hover {
+  color: yellow;
+}</code></pre>
+  <p><strong>Como usar:</strong> <code>:hover</code> aplica estilos ao passar o mouse.</p>
+  <div class="questao">
+    <p><strong>Desafio 20:</strong> O que faz <code>a:hover { color: red; }</code>?</p>
+    <input type="text" id="q20" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q20', 'Muda a cor do link para vermelho ao passar o mouse', 'Descreva o efeito.', 'msg20', 'sala10')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg20', 'Aplica estilo quando o mouse está sobre o link.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q20', 'msg20')">Limpar</button>
+    <p id="msg20" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 21:</strong> Qual pseudo-classe ativa o estilo ao passar o mouse?</p>
+    <input type="text" id="q21" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q21', ':hover', 'Nome da pseudo-classe.', 'msg21', 'sala10')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg21', 'Usada para interações com o mouse.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q21', 'msg21')">Limpar</button>
+    <p id="msg21" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Links brilhando!</strong> Você domina links. Próxima sala! 🔗</p>
+
+  <h2 id="sala11">📬 Sala 11: <span class="sala-title">Controlar Formulários</span></h2>
+  <p class="sala-desc">Estilize formulários para parecerem terminais de comunicação. Veja:</p>
+  <pre><code>input {
+  border: 2px solid blue;
+  padding: 5px;
+}</code></pre>
+  <p><strong>Como usar:</strong> Estilize <code>input</code>, <code>button</code> com bordas e preenchimento.</p>
+  <div class="questao">
+    <p><strong>Desafio 22:</strong> O que faz <code>input { border: 1px solid black; }</code>?</p>
+    <input type="text" id="q22" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q22', 'Adiciona borda preta ao input', 'Descreva o efeito.', 'msg22', 'sala11')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg22', 'Define o contorno do campo de entrada.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q22', 'msg22')">Limpar</button>
+    <p id="msg22" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 23:</strong> Como estilizar um botão com fundo verde?</p>
+    <input type="text" id="q23" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q23', 'button { background-color: green; }', 'Escreva o CSS.', 'msg23', 'sala11')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg23', 'Use a propriedade de fundo no seletor button.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q23', 'msg23')">Limpar</button>
+    <p id="msg23" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Terminal estilizado!</strong> Você domina formulários. Próxima sala! 📬</p>
+
+  <h2 id="sala12">📱 Sala 12: <span class="sala-title">Responsividade Cósmica</span></h2>
+  <p class="sala-desc">Media queries adaptam a interface para diferentes telas. Veja:</p>
+  <pre><code>@media (max-width: 600px) {
+  .painel {
+    font-size: 14px;
+  }
+}</code></pre>
+  <p><strong>Como usar:</strong> Use <code>@media</code> para ajustar estilos por tamanho de tela.</p>
+  <div class="questao">
+    <p><strong>Desafio 24:</strong> O que faz <code>@media (max-width: 800px)</code>?</p>
+    <input type="text" id="q24" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q24', 'Aplica estilos em telas menores que 800px', 'Descreva o efeito.', 'msg24', 'sala12')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg24', 'Muda estilos para telas pequenas.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q24', 'msg24')">Limpar</button>
+    <p id="msg24" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 25:</strong> Qual propriedade define a largura máxima da tela?</p>
+    <input type="text" id="q25" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q25', 'max-width', 'Nome da propriedade.', 'msg25', 'sala12')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg25', 'Usada em media queries para limitar a largura.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q25', 'msg25')">Limpar</button>
+    <p id="msg25" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Interface adaptada!</strong> Você domina responsividade. Próxima sala! 📱</p>
+
+  <h2 id="sala13">🌠 Sala 13: <span class="sala-title">Animações Estelares</span></h2>
+  <p class="sala-desc">Animações com <code>@keyframes</code> e <code>animation</code> dão vida à interface. Veja:</p>
+  <pre><code>@keyframes pulsar {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.pulsar {
+  animation: pulsar 2s infinite;
+}</code></pre>
+  <p><strong>Como usar:</strong> Defina <code>@keyframes</code> e aplique com <code>animation</code>.</p>
+  <div class="questao">
+    <p><strong>Desafio 26:</strong> O que faz <code>animation: girar 1s infinite;</code>?</p>
+    <input type="text" id="q26" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q26', 'Aplica a animação girar repetidamente por 1 segundo', 'Descreva o efeito.', 'msg26', 'sala13')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg26', 'Define uma animação que roda para sempre.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q26', 'msg26')">Limpar</button>
+    <p id="msg26" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 27:</strong> Como definir uma animação?</p>
+    <input type="text" id="q27" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q27', '@keyframes', 'Nome da regra.', 'msg27', 'sala13')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg27', 'Usada para criar sequências de animação.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q27', 'msg27')">Limpar</button>
+    <p id="msg27" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Animações brilhando!</strong> Você domina animações. Vamos para a final! 🌠</p>
+
+  <h2 id="sala14">🌌 Sala 14: <span class="sala-title">Interface Web Galáctica</span></h2>
+  <p class="sala-desc">Combine tudo para estilizar a Interface Web Galáctica! Veja:</p>
+  <pre><code>&lt;header class="painel"&gt;
+  &lt;h1&gt;Missão CSS&lt;/h1&gt;
+&lt;/header&gt;
+&lt;style&gt;
+.painel {
+  background-color: #000033;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+&lt;/style&gt;</code></pre>
+  <p><strong>Como usar:</strong> Combine seletores, cores, flexbox e efeitos para um layout completo.</p>
+  <div class="questao">
+    <p><strong>Desafio 28:</strong> O que faz?
+<pre><code>.painel {
+  background-color: black;
+}</code></pre>
+    </p>
+    <input type="text" id="q28" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q28', 'Define fundo preto', 'Descreva o efeito.', 'msg28', 'sala14')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg28', 'Muda a cor de fundo do elemento.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q28', 'msg28')">Limpar</button>
+    <p id="msg28" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 29:</strong> Como centralizar horizontalmente com flexbox?</p>
+    <input type="text" id="q29" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q29', 'justify-content: center', 'Escreva a propriedade e valor.', 'msg29', 'sala14')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg29', 'Use flexbox para alinhar no centro.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q29', 'msg29')">Limpar</button>
+    <p id="msg29" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 30:</strong> Qual propriedade define transparência?</p>
+    <input type="text" id="q30" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q30', 'opacity', 'Nome da propriedade.', 'msg30', 'sala14')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg30', 'Controla a visibilidade do elemento.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q30', 'msg30')">Limpar</button>
+    <p id="msg30" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 31:</strong> Como criar uma animação?</p>
+    <input type="text" id="q31" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q31', '@keyframes', 'Nome da regra.', 'msg31', 'sala14')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg31', 'Define sequências de animação.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q31', 'msg31')">Limpar</button>
+    <p id="msg31" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 32:</strong> Como estilizar inputs com borda azul?</p>
+    <input type="text" id="q32" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q32', 'input { border: 1px solid blue; }', 'Escreva o CSS.', 'msg32', 'sala14')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg32', 'Use a propriedade border no seletor input.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q32', 'msg32')">Limpar</button>
+    <p id="msg32" class="feedback"></p>
+  </div>
+  <p id="final-conclusion">🎉 <strong>Você é um herói estelar!</strong> A Interface Web Galáctica está estilizada, e Comandante Koda está impressionado! Continue explorando CSS e o universo! 🌌</p>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

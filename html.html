@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Code Amigos: A Missão Cósmica do HTML</title>
+</head>
+<body data-theme="light" data-story-style="space">
+<div class="particles" id="particles"></div>
+<div class="container">
+  <h1 id="main-title">🌌 Code Amigos: A Missão Cósmica do HTML</h1>
+  <div class="nav">
+
+     <select id="estiloSelect" onchange="mudarPagina()">
+    <option value="">Estilo HTML5</option>
+    <option value="index.html">Estilo: PYTHON</option>
+    <option value="CSS.html">Estilo: CSS e HTML5</option>
+    <option value="editor.html">Estilo: Editor de Código</option>
+  </select>
+
+  <script>
+    function mudarPagina() {
+      var select = document.getElementById("estiloSelect");
+      var valor = select.value;
+      if (valor) {
+        window.location.href = valor;
+      }
+    }
+  </script>
+    <select id="sala-nav" onchange="scrollToSala(this.value)">
+      <option value="">Escolha uma Sala...</option>
+      <option value="sala1">Sala 1: <span class="sala-title">Enviar Sinais com Tags Básicas</span></option>
+      <option value="sala2">Sala 2: <span class="sala-title">Estruturar a Nave com a Tag html</span></option>
+      <option value="sala3">Sala 3: <span class="sala-title">Configurar o Painel com head e meta</span></option>
+      <option value="sala4">Sala 4: <span class="sala-title">Organizar o Cockpit com body</span></option>
+      <option value="sala5">Sala 5: <span class="sala-title">Exibir Mensagens com p e h1-h6</span></option>
+      <option value="sala6">Sala 6: <span class="sala-title">Adicionar Detalhes com Atributos</span></option>
+      <option value="sala7">Sala 7: <span class="sala-title">Navegar com Links a</span></option>
+      <option value="sala8">Sala 8: <span class="sala-title">Exibir Imagens Estelares com img</span></option>
+      <option value="sala9">Sala 9: <span class="sala-title">Listar Recursos com ul e ol</span></option>
+      <option value="sala10">Sala 10: <span class="sala-title">Organizar com div e span</span></option>
+      <option value="sala11">Sala 11: <span class="sala-title">Estruturas Semânticas</span></option>
+      <option value="sala12">Sala 12: <span class="sala-title">Coletar Dados com Formulários</span></option>
+      <option value="sala13">Sala 13: <span class="sala-title">Proteger o Código com Validação</span></option>
+      <option value="sala14">Sala 14: <span class="sala-title">Interface Web Galáctica</span></option>
+    </select>
+    <button class="reset-all-btn" onclick="resetAll()">Recomeçar Missão</button>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Mudar tema"><span class="theme-icon">🌙</span> Tema</button>
+  </div>
+  <div class="progress-bar">
+    <div class="progress" id="progress"></div>
+    <div class="milestone" style="left: 25%;"><span class="milestone-label">Iniciante</span></div>
+    <div class="milestone" style="left: 50%;"><span class="milestone-label">Aprendiz</span></div>
+    <div class="milestone" style="left: 75%;"><span class="milestone-label">Mestre</span></div>
+  </div>
+  <div class="score">Pontos: <span id="score">0</span>/32</div>
+  <div class="selo-tracker" id="selo-tracker"></div>
+  <p id="intro-text">👋 Saudações, jovem astronauta! Eu sou o <strong>Comandante Koda</strong>, seu guia na <strong>Missão Cósmica do HTML</strong>. Vamos construir a <strong>Interface Web Galáctica</strong> para nossa nave! Cada sala tem desafios para dominar HTML. Preparado? 🚀</p>
+
+  <h2 id="sala1">✨ Sala 1: <span class="sala-title">Enviar Sinais com Tags Básicas</span></h2>
+  <p class="sala-desc">Tags HTML são como sinais de rádio que definem a estrutura da sua interface. Veja:</p>
+  <pre><code>&lt;p&gt;Olá, astronauta!&lt;/p&gt;</code></pre>
+  <p><strong>Como usar:</strong> Tags começam com <code>&lt;nome&gt;</code> e terminam com <code>&lt;/nome&gt;</code>. O <code>&lt;p&gt;</code> cria parágrafos.</p>
+  <div class="questao">
+    <p><strong>Desafio 1:</strong> O que aparece ao usar <code>&lt;p&gt;Missão HTML&lt;/p&gt;</code>?</p>
+    <input type="text" id="q1" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q1', 'Missão HTML', 'Escreva o texto exato.', 'msg1', 'sala1')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg1', 'O texto dentro da tag p aparece na tela.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q1', 'msg1')">Limpar</button>
+    <p id="msg1" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 2:</strong> Qual é a tag para um parágrafo?</p>
+    <input type="text" id="q2" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q2', 'p', 'Nome da tag, sem <>.', 'msg2', 'sala1')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg2', 'É a tag que cria parágrafos, como <p>.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q2', 'msg2')">Limpar</button>
+    <p id="msg2" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Ótimo trabalho!</strong> Você enviou seus primeiros sinais. Vamos para a próxima sala! 🚪</p>
+
+  <h2 id="sala2">🚀 Sala 2: <span class="sala-title">Estruturar a Nave com a Tag html</span></h2>
+  <p class="sala-desc">A tag <code>&lt;html&gt;</code> é como o casco da nave, envolvendo todo o conteúdo. Veja:</p>
+  <pre><code>&lt;html&gt;
+  &lt;p&gt;Painel de Controle&lt;/p&gt;
+&lt;/html&gt;</code></pre>
+  <p><strong>Como usar:</strong> Todo documento HTML começa com <code>&lt;!DOCTYPE html&gt;</code> e usa <code>&lt;html&gt;</code> como base.</p>
+  <div class="questao">
+    <p><strong>Desafio 3:</strong> Qual é a primeira linha de um documento HTML?</p>
+    <input type="text" id="q3" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q3', '<!DOCTYPE html>', 'Escreva a declaração exata.', 'msg3', 'sala2')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg3', 'É a declaração que define o tipo de documento.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q3', 'msg3')">Limpar</button>
+    <p id="msg3" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 4:</strong> O que aparece?
+<pre><code>&lt;html&gt;
+  &lt;p&gt;Estação Espacial&lt;/p&gt;
+&lt;/html&gt;</code></pre>
+    </p>
+    <input type="text" id="q4" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q4', 'Estação Espacial', 'Texto dentro do p.', 'msg4', 'sala2')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg4', 'O texto dentro da tag p é exibido.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q4', 'msg4')">Limpar</button>
+    <p id="msg4" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Perfeito!</strong> A estrutura da nave está pronta. Continue, astronauta! 🚀</p>
+
+  <h2 id="sala3">🖥️ Sala 3: <span class="sala-title">Configurar o Painel com head e meta</span></h2>
+  <p class="sala-desc">A tag <code>&lt;head&gt;</code> configura o painel de controle com metadados. Veja:</p>
+  <pre><code>&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Painel Estelar&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+  <p><strong>Como usar:</strong> O <code>&lt;meta charset="UTF-8"&gt;</code> define a codificação, e <code>&lt;title&gt;</code> define o título da aba.</p>
+  <div class="questao">
+    <p><strong>Desafio 5:</strong> O que faz <code>&lt;meta charset="UTF-8"&gt;</code>?</p>
+    <input type="text" id="q5" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q5', 'Define a codificação de caracteres', 'Descreva a função.', 'msg5', 'sala3')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg5', 'Garante que caracteres especiais sejam exibidos corretamente.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q5', 'msg5')">Limpar</button>
+    <p id="msg5" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 6:</strong> O que aparece na aba do navegador?
+<pre><code>&lt;head&gt;
+  &lt;title&gt;Nave Koda&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+    </p>
+    <input type="text" id="q6" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q6', 'Nave Koda', 'Texto do title.', 'msg6', 'sala3')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg6', 'O título aparece na aba do navegador.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q6', 'msg6')">Limpar</button>
+    <p id="msg6" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Boa, astronauta!</strong> O painel está configurado. Vamos adiante! 🖥️</p>
+
+  <h2 id="sala4">🛠️ Sala 4: <span class="sala-title">Organizar o Cockpit com body</span></h2>
+  <p class="sala-desc">A tag <code>&lt;body&gt;</code> é o cockpit, onde o conteúdo visível da nave aparece. Veja:</p>
+  <pre><code>&lt;body&gt;
+  &lt;p&gt;Bem-vindo à nave!&lt;/p&gt;
+&lt;/body&gt;</code></pre>
+  <p><strong>Como usar:</strong> Tudo visível na página vai dentro de <code>&lt;body&gt;</code>.</p>
+  <div class="questao">
+    <p><strong>Desafio 7:</strong> O que aparece?
+<pre><code>&lt;body&gt;
+  &lt;p&gt;Sistema Online&lt;/p&gt;
+&lt;/body&gt;</code></pre>
+    </p>
+    <input type="text" id="q7" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q7', 'Sistema Online', 'Texto do p.', 'msg7', 'sala4')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg7', 'O texto dentro do body aparece na página.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q7', 'msg7')">Limpar</button>
+    <p id="msg7" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 8:</strong> Qual tag contém o conteúdo visível?</p>
+    <input type="text" id="q8" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q8', 'body', 'Nome da tag.', 'msg8', 'sala4')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg8', 'É onde colocamos tudo que aparece na tela.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q8', 'msg8')">Limpar</button>
+    <p id="msg8" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Você é demais!</strong> O cockpit está pronto. Próxima sala! 🛠️</p>
+
+  <h2 id="sala5">📜 Sala 5: <span class="sala-title">Exibir Mensagens com p e h1-h6</span></h2>
+  <p class="sala-desc">As tags <code>&lt;p&gt;</code> e <code>&lt;h1&gt;</code> a <code>&lt;h6&gt;</code> mostram textos, como comunicadores estelares. Veja:</p>
+  <pre><code>&lt;h1&gt;Missão Estelar&lt;/h1&gt;
+&lt;p&gt;Iniciar contagem!&lt;/p&gt;</code></pre>
+  <p><strong>Como usar:</strong> <code>&lt;h1&gt;</code> é o título maior, <code>&lt;h6&gt;</code> o menor. <code>&lt;p&gt;</code> é para parágrafos.</p>
+  <div class="questao">
+    <p><strong>Desafio 9:</strong> O que aparece?
+<pre><code>&lt;h2&gt;Comando Ativado&lt;/h2&gt;</code></pre>
+    </p>
+    <input type="text" id="q9" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q9', 'Comando Ativado', 'Texto do h2.', 'msg9', 'sala5')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg9', 'O texto dentro do h2 aparece como título.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q9', 'msg9')">Limpar</button>
+    <p id="msg9" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 10:</strong> Qual tag cria o maior título?</p>
+    <input type="text" id="q10" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q10', 'h1', 'Nome da tag.', 'msg10', 'sala5')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg10', 'É o maior nível de título, como <h1>.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q10', 'msg10')">Limpar</button>
+    <p id="msg10" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 11:</strong> Quantas tags de título existem?</p>
+    <input type="text" id="q11" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q11', '6', 'Conte de h1 a h6.', 'msg11', 'sala5')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg11', 'Vai de h1 até h6. Conte quantas!')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q11', 'msg11')">Limpar</button>
+    <p id="msg11" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Comunicação clara!</strong> Você domina textos. Vamos continuar! 📜</p>
+
+  <h2 id="sala6">⚙️ Sala 6: <span class="sala-title">Adicionar Detalhes com Atributos</span></h2>
+  <p class="sala-desc">Atributos são como configurações de equipamentos, dando mais funções às tags. Veja:</p>
+  <pre><code>&lt;p id="comunicador"&gt;Mensagem&lt;/p&gt;</code></pre>
+  <p><strong>Como usar:</strong> Atributos como <code>id</code> ou <code>class</code> vão dentro da tag inicial, como <code>&lt;tag id="valor"&gt;</code>.</p>
+  <div class="questao">
+    <p><strong>Desafio 12:</strong> Qual é o atributo em <code>&lt;p class="estelar"&gt;Texto&lt;/p&gt;</code>?</p>
+    <input type="text" id="q12" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q12', 'class', 'Nome do atributo.', 'msg12', 'sala6')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg12', 'É o nome antes do = na tag.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q12', 'msg12')">Limpar</button>
+    <p id="msg12" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 13:</strong> O que aparece?
+<pre><code>&lt;p id="alerta"&gt;Emergência!&lt;/p&gt;</code></pre>
+    </p>
+    <input type="text" id="q13" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q13', 'Emergência!', 'Texto do p.', 'msg13', 'sala6')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg13', 'Atributos não aparecem, só o texto do p.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q13', 'msg13')">Limpar</button>
+    <p id="msg13" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Equipamento configurado!</strong> Você domina atributos. Próxima sala! ⚙️</p>
+
+  <h2 id="sala7">🔗 Sala 7: <span class="sala-title">Navegar com Links a</span></h2>
+  <p class="sala-desc">A tag <code>&lt;a&gt;</code> cria links, como portais espaciais para outras páginas. Veja:</p>
+  <pre><code>&lt;a href="https://nasa.gov"&gt;Visitar NASA&lt;/a&gt;</code></pre>
+  <p><strong>Como usar:</strong> O atributo <code>href</code> define o destino do link.</p>
+  <div class="questao">
+    <p><strong>Desafio 14:</strong> O que aparece?
+<pre><code>&lt;a href="galaxia.html"&gt;Explorar&lt;/a&gt;</code></pre>
+    </p>
+    <input type="text" id="q14" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q14', 'Explorar', 'Texto do link.', 'msg14', 'sala7')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg14', 'O texto dentro da tag a aparece como link.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q14', 'msg14')">Limpar</button>
+    <p id="msg14" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 15:</strong> Qual atributo define o destino do link?</p>
+    <input type="text" id="q15" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q15', 'href', 'Nome do atributo.', 'msg15', 'sala7')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg15', 'É o atributo que aponta para a URL.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q15', 'msg15')">Limpar</button>
+    <p id="msg15" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Portal ativado!</strong> Você domina links. Vamos adiante! 🔗</p>
+
+  <h2 id="sala8">🖼️ Sala 8: <span class="sala-title">Exibir Imagens Estelares com img</span></h2>
+  <p class="sala-desc">A tag <code>&lt;img&gt;</code> mostra imagens, como visores estelares. Veja:</p>
+  <pre><code>&lt;img src="nave.jpg" alt="Nave Koda"&gt;</code></pre>
+  <p><strong>Como usar:</strong> Use <code>src</code> para o caminho da imagem e <code>alt</code> para descrição.</p>
+  <div class="questao">
+    <p><strong>Desafio 16:</strong> Qual atributo define a descrição da imagem?</p>
+    <input type="text" id="q16" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q16', 'alt', 'Nome do atributo.', 'msg16', 'sala8')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg16', 'É o atributo que descreve a imagem.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q16', 'msg16')">Limpar</button>
+    <p id="msg16" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 17:</strong> O que acontece se a imagem não carrega?
+<pre><code>&lt;img src="erro.jpg" alt="Planeta"&gt;</code></pre>
+    </p>
+    <input type="text" id="q17" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q17', 'Planeta', 'Texto do alt.', 'msg17', 'sala8')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg17', 'O texto do alt aparece se a imagem falhar.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q17', 'msg17')">Limpar</button>
+    <p id="msg17" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Visor estelar!</strong> Você domina imagens. Próxima sala! 🖼️</p>
+
+  <h2 id="sala9">📋 Sala 9: <span class="sala-title">Listar Recursos com ul e ol</span></h2>
+  <p class="sala-desc">As tags <code>&lt;ul&gt;</code> e <code>&lt;ol&gt;</code> criam listas, como inventários de recursos. Veja:</p>
+  <pre><code>&lt;ul&gt;
+  &lt;li&gt;Propulsor&lt;/li&gt;
+  &lt;li&gt;Radar&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+  <p><strong>Como usar:</strong> <code>&lt;ul&gt;</code> faz listas não ordenadas (pontos), <code>&lt;ol&gt;</code> faz listas numeradas.</p>
+  <div class="questao">
+    <p><strong>Desafio 18:</strong> O que aparece?
+<pre><code>&lt;ol&gt;
+  &lt;li&gt;Missão 1&lt;/li&gt;
+  &lt;li&gt;Missão 2&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+    </p>
+    <input type="text" id="q18" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q18', '1. Missão 1 2. Missão 2', 'Liste os itens com números.', 'msg18', 'sala9')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg18', 'A ol cria uma lista numerada. Escreva na ordem!')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q18', 'msg18')">Limpar</button>
+    <p id="msg18" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 19:</strong> Qual tag cria uma lista com marcadores?</p>
+    <input type="text" id="q19" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q19', 'ul', 'Nome da tag.', 'msg19', 'sala9')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg19', 'É a tag para listas com pontos, não números.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q19', 'msg19')">Limpar</button>
+    <p id="msg19" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Inventário pronto!</strong> Você domina listas. Vamos adiante! 📋</p>
+
+  <h2 id="sala10">🗂️ Sala 10: <span class="sala-title">Organizar com div e span</span></h2>
+  <p class="sala-desc">As tags <code>&lt;div&gt;</code> e <code>&lt;span&gt;</code> organizam o conteúdo, como módulos da nave. Veja:</p>
+  <pre><code>&lt;div&gt;
+  &lt;span&gt;Alerta&lt;/span&gt;: Sistema ativado
+&lt;/div&gt;</code></pre>
+  <p><strong>Como usar:</strong> <code>&lt;div&gt;</code> agrupa blocos, <code>&lt;span&gt;</code> marca partes de texto.</p>
+  <div class="questao">
+    <p><strong>Desafio 20:</strong> O que aparece?
+<pre><code>&lt;div&gt;
+  &lt;span&gt;Status:&lt;/span&gt; Online
+&lt;/div&gt;</code></pre>
+    </p>
+    <input type="text" id="q20" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q20', 'Status: Online', 'Texto completo.', 'msg20', 'sala10')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg20', 'Junte o texto do span e o resto.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q20', 'msg20')">Limpar</button>
+    <p id="msg20" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 21:</strong> Qual tag agrupa blocos de conteúdo?</p>
+    <input type="text" id="q21" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q21', 'div', 'Nome da tag.', 'msg21', 'sala10')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg21', 'É usada para organizar seções grandes.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q21', 'msg21')">Limpar</button>
+    <p id="msg21" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Módulos organizados!</strong> Você domina div e span. Próxima sala! 🗂️</p>
+
+  <h2 id="sala11">🏛️ Sala 11: <span class="sala-title">Estruturas Semânticas</span></h2>
+  <p class="sala-desc">Tags semânticas como <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code> dão significado, como setores da nave. Veja:</p>
+  <pre><code>&lt;header&gt;
+  &lt;h1&gt;Painel Principal&lt;/h1&gt;
+&lt;/header&gt;</code></pre>
+  <p><strong>Como usar:</strong> Use <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code> para clareza.</p>
+  <div class="questao">
+    <p><strong>Desafio 22:</strong> Qual tag define o rodapé da página?</p>
+    <input type="text" id="q22" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q22', 'footer', 'Nome da tag.', 'msg22', 'sala11')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg22', 'É a tag para o final da página.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q22', 'msg22')">Limpar</button>
+    <p id="msg22" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 23:</strong> O que aparece?
+<pre><code>&lt;section&gt;
+  &lt;p&gt;Relatório Estelar&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+    </p>
+    <input type="text" id="q23" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q23', 'Relatório Estelar', 'Texto do p.', 'msg23', 'sala11')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg23', 'O texto dentro do p aparece.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q23', 'msg23')">Limpar</button>
+    <p id="msg23" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Setores definidos!</strong> Você domina semântica. Próxima sala! 🏛️</p>
+
+  <h2 id="sala12">📬 Sala 12: <span class="sala-title">Coletar Dados com Formulários</span></h2>
+  <p class="sala-desc">A tag <code>&lt;form&gt;</code> coleta dados, como um terminal de comunicação. Veja:</p>
+  <pre><code>&lt;form&gt;
+  &lt;input type="text" name="nome"&gt;
+&lt;/form&gt;</code></pre>
+  <p><strong>Como usar:</strong> Use <code>&lt;input&gt;</code> com <code>type</code> para texto, número, etc.</p>
+  <div class="questao">
+    <p><strong>Desafio 24:</strong> Qual tag cria um campo de texto?
+<pre><code>&lt;form&gt;
+  &lt;input type="text" name="astronauta"&gt;
+&lt;/form&gt;</code></pre>
+    </p>
+    <input type="text" id="q24" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q24', 'input', 'Nome da tag.', 'msg24', 'sala12')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg24', 'É a tag que cria campos no formulário.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q24', 'msg24')">Limpar</button>
+    <p id="msg24" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 25:</strong> Qual atributo define o tipo de entrada?</p>
+    <input type="text" id="q25" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q25', 'type', 'Nome do atributo.', 'msg25', 'sala12')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg25', 'Define se o input é texto, número, etc.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q25', 'msg25')">Limpar</button>
+    <p id="msg25" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Terminal ativo!</strong> Você domina formulários. Próxima sala! 📬</p>
+
+  <h2 id="sala13">🛡️ Sala 13: <span class="sala-title">Proteger o Código com Validação</span></h2>
+  <p class="sala-desc">Atributos como <code>required</code> protegem formulários, como escudos de energia. Veja:</p>
+  <pre><code>&lt;form&gt;
+  &lt;input type="text" required&gt;
+&lt;/form&gt;</code></pre>
+  <p><strong>Como usar:</strong> <code>required</code> impede envios sem preenchimento.</p>
+  <div class="questao">
+    <p><strong>Desafio 26:</strong> O que faz <code>required</code> em um <code>&lt;input&gt;</code>?</p>
+    <input type="text" id="q26" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q26', 'Exige preenchimento', 'Descreva a função.', 'msg26', 'sala13')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg26', 'Impede o envio do formulário se vazio.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q26', 'msg26')">Limpar</button>
+    <p id="msg26" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 27:</strong> O que acontece se o campo está vazio?
+<pre><code>&lt;input type="text" required&gt;</code></pre>
+    </p>
+    <input type="text" id="q27" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q27', 'Mostra erro de validação', 'Descreva o resultado.', 'msg27', 'sala13')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg27', 'O navegador mostra uma mensagem se não preencher.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q27', 'msg27')">Limpar</button>
+    <p id="msg27" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Escudo ativado!</strong> Seu código está protegido. Vamos para a final! 🛡️</p>
+
+  <h2 id="sala14">🌌 Sala 14: <span class="sala-title">Interface Web Galáctica</span></h2>
+  <p class="sala-desc">Combine tudo para criar a <strong>Interface Web Galáctica</strong>! Veja:</p>
+  <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Nave Koda&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;Missão HTML&lt;/h1&gt;
+  &lt;/header&gt;
+  &lt;section&gt;
+    &lt;form&gt;
+      &lt;input type="text" name="nome" required&gt;
+    &lt;/form&gt;
+  &lt;/section&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  <p><strong>Como usar:</strong> Combine tags semânticas, formulários e validação para uma interface completa.</p>
+  <div class="questao">
+    <p><strong>Desafio 28:</strong> O que aparece na aba?
+<pre><code>&lt;head&gt;
+  &lt;title&gt;Galáxia Koda&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+    </p>
+    <input type="text" id="q28" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q28', 'Galáxia Koda', 'Texto do title.', 'msg28', 'sala14')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg28', 'O texto do title aparece na aba.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q28', 'msg28')">Limpar</button>
+    <p id="msg28" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 29:</strong> O que aparece na página?
+<pre><code>&lt;body&gt;
+  &lt;h1&gt;Bem-vindo&lt;/h1&gt;
+  &lt;p&gt;A bordo!&lt;/p&gt;
+&lt;/body&gt;</code></pre>
+    </p>
+    <input type="text" id="q29" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q29', 'Bem-vindo A bordo!', 'Texto do h1 e p.', 'msg29', 'sala14')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg29', 'Junte o texto do h1 e do p.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q29', 'msg29')">Limpar</button>
+    <p id="msg29" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 30:</strong> Qual tag define o cabeçalho da página?</p>
+    <input type="text" id="q30" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q30', 'header', 'Nome da tag.', 'msg30', 'sala14')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg30', 'É a tag semântica para o topo da página.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q30', 'msg30')">Limpar</button>
+    <p id="msg30" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 31:</strong> Qual atributo impede envio de formulário vazio?</p>
+    <input type="text" id="q31" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q31', 'required', 'Nome do atributo.', 'msg31', 'sala14')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg31', 'É usado em inputs para exigir preenchimento.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q31', 'msg31')">Limpar</button>
+    <p id="msg31" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 32:</strong> Qual é a última tag no código acima?</p>
+    <input type="text" id="q32" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q32', 'html', 'Nome da tag.', 'msg32', 'sala14')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg32', 'É a tag que fecha o documento HTML.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q32', 'msg32')">Limpar</button>
+    <p id="msg32" class="feedback"></p>
+  </div>
+  <p id="final-conclusion">🎉 <strong>Você é um herói estelar!</strong> A Interface Web Galáctica está pronta, e Comandante Koda está impressionado! Continue explorando o HTML e o universo! 🌌</p>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,287 @@
+    :root {
+      /* Light Mode Variables */
+      --bg-body: linear-gradient(135deg, #1e3c72, #2a5298);
+      --text-primary: #333;
+      --text-secondary: #fff;
+      --container-bg: rgba(255, 255, 255, 0.95);
+      --questao-bg: #fdfdfd;
+      --questao-border: #ff6f61;
+      --button-bg: #ff6f61;
+      --button-hover: #e65a50;
+      --progress-bg: #e0e0e0;
+      --progress-fill: #ff6f61;
+      --selo-tracker-bg: #f8f9fa;
+      --code-bg: #f4f4f4;
+      --pre-code-bg: #1e1e2f;
+      --pre-code-text: #f8f8f2;
+      --particle-bg: rgba(255, 111, 97, 0.7);
+    }
+    [data-theme="dark"] {
+      /* Dark Mode Variables */
+      --bg-body: linear-gradient(135deg, #121212, #1e1e1e);
+      --text-primary: #e0e0e0;
+      --text-secondary: #bbb;
+      --container-bg: rgba(30, 30, 30, 0.95);
+      --questao-bg: #252525;
+      --questao-border: #ff6f61;
+      --button-bg: #ff6f61;
+      --button-hover: #e65a50;
+      --progress-bg: #333;
+      --progress-fill: #ff6f61;
+      --selo-tracker-bg: #1c1c1c;
+      --code-bg: #333;
+      --pre-code-bg: #1e1e2f;
+      --pre-code-text: #f8f8f2;
+      --particle-bg: rgba(255, 111, 97, 0.5);
+    }
+    body {
+      background: var(--bg-body);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: var(--text-primary);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      position: relative;
+    }
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .particle {
+      position: absolute;
+      background: var(--particle-bg);
+      border-radius: 50%;
+      animation: float 15s infinite linear;
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(0.5); opacity: 0.8; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 40px;
+      background: var(--container-bg);
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+      position: relative;
+      z-index: 1;
+    }
+    h1, h2 {
+      color: #ff6f61;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.8em;
+      margin-bottom: 30px;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #ff6f61, 0 0 10px #ff6f61; }
+      to { text-shadow: 0 0 10px #ff6f61, 0 0 20px #ff6f61; }
+    }
+    p {
+      color: var(--text-primary);
+      margin: 20px 0;
+      font-size: 1.1em;
+    }
+    code {
+      background: var(--code-bg);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: 'Consolas', 'Courier New', monospace;
+      color: #d63384;
+    }
+    pre code {
+      background: var(--pre-code-bg);
+      color: var(--pre-code-text);
+      padding: 20px;
+      display: block;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 0.95em;
+    }
+    .questao {
+      border: 2px solid var(--questao-border);
+      background: var(--questao-bg);
+      padding: 25px;
+      margin: 25px 0;
+      border-radius: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .questao:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    .questao p {
+      margin: 12px 0;
+    }
+    .questao input[type="text"] {
+      width: 70%;
+      padding: 10px;
+      margin: 12px 12px 12px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
+      background: #fff;
+      color: #333;
+    }
+    [data-theme="dark"] .questao input[type="text"] {
+      background: #333;
+      color: #e0e0e0;
+      border-color: #555;
+    }
+    .questao button {
+      padding: 10px 20px;
+      background: var(--button-bg);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-size: 1em;
+    }
+    .questao button:hover {
+      background: var(--button-hover);
+    }
+    .hint-btn, .reset-btn {
+      background: #6c757d;
+      margin-left: 10px;
+    }
+    .hint-btn:hover, .reset-btn:hover {
+      background: #5a6268;
+    }
+    .feedback {
+      font-weight: bold;
+      margin-top: 12px;
+      font-size: 1.2em;
+    }
+    .correct {
+      color: #28a745;
+    }
+    .incorrect {
+      color: #dc3545;
+    }
+    .progress-bar {
+      width: 100%;
+      background: var(--progress-bg);
+      height: 25px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 30px;
+      position: relative;
+    }
+    .progress {
+      height: 100%;
+      background: var(--progress-fill);
+      width: 0;
+      transition: width 0.5s;
+    }
+    .milestone {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 2px;
+      background: var(--text-primary);
+      z-index: 1;
+    }
+    .milestone-label {
+      position: absolute;
+      top: -20px;
+      font-size: 0.8em;
+      color: var(--text-primary);
+    }
+    .score {
+      text-align: center;
+      font-size: 1.3em;
+      color: var(--text-primary);
+      margin-bottom: 30px;
+    }
+    .selo-tracker {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 20px 0;
+      padding: 15px;
+      background: var(--selo-tracker-bg);
+      border-radius: 10px;
+    }
+    .selo {
+      width: 50px;
+      height: 50px;
+      background: #ccc;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9em;
+      color: #fff;
+      transition: background 0.3s;
+    }
+    .selo.unlocked {
+      background: var(--button-bg);
+    }
+    .nav {
+      margin-bottom: 20px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .nav select, .nav button {
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .reset-all-btn {
+      background: #dc3545;
+      color: #fff;
+      border: none;
+    }
+    .reset-all-btn:hover {
+      background: #c82333;
+    }
+    .theme-toggle {
+      background: #6c757d;
+      color: #fff;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .theme-toggle:hover {
+      background: #5a6268;
+    }
+    .theme-icon::before {
+      content: '☀️';
+    }
+    [data-theme="dark"] .theme-icon::before {
+      content: '🌙';
+    }
+    @media (max-width: 600px) {
+      .container {
+        margin: 20px;
+        padding: 20px;
+      }
+      .questao input[type="text"] {
+        width: 100%;
+      }
+      .questao button {
+        width: 100%;
+        margin: 10px 0;
+      }
+      h1 {
+        font-size: 2em;
+      }
+      .nav {
+        flex-direction: column;
+      }
+    }

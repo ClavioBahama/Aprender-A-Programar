@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="editor.css">
+  <title>🌌 Code Amigos: Editor Cósmico</title>
+</head>
+<body data-theme="light" data-story-style="space">
+  <div class="particles" id="particles"></div>
+  <div class="container">
+    <h1>🌌 Code Amigos: Editor Cósmico</h1>
+    <p class="intro">👋 Saudações, jovem astronauta! Eu sou o <strong>Comandante Koda</strong>. Use este editor para criar e visualizar sua <strong>Interface Web Galáctica</strong> com HTML e CSS. Escreva seu código à esquerda e veja o resultado à direita. Vamos codificar o universo! 🚀</p>
+    <div class="nav">
+     <select id="estiloSelect" onchange="mudarPagina()">
+    <option value="">Editor de Código</option>
+    <option value="index.html">Estilo: PYTHON</option>
+    <option value="CSS.html">Estilo: HTML5</option>
+    <option value="html.html">Estilo: CSS e HTML5</option>
+  </select>
+
+  <script>
+    function mudarPagina() {
+      var select = document.getElementById("estiloSelect");
+      var valor = select.value;
+      if (valor) {
+        window.location.href = valor;
+      }
+    }
+  </script>
+      <button onclick="saveCode()">Salvar Código</button>
+      <button onclick="loadCode()">Carregar Código</button>
+      <button class="reset-btn" onclick="resetCode()">Limpar Código</button>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Mudar tema"><span class="theme-icon">🌙</span> Tema</button>
+    </div>
+    <div class="editor-container">
+      <div class="editor-pane">
+        <h2>HTML</h2>
+        <textarea id="html-editor" placeholder="Digite seu HTML aqui..."></textarea>
+      </div>
+      <div class="editor-pane">
+        <h2>CSS</h2>
+        <textarea id="css-editor" placeholder="Digite seu CSS aqui..."></textarea>
+      </div>
+      <div class="viewer-pane">
+        <h2>Visualização</h2>
+        <iframe id="preview"></iframe>
+      </div>
+    </div>
+    <p id="error-message" class="error"></p>
+  </div>
+  <script src="editoe.js"></script>
+</body>
+</html>

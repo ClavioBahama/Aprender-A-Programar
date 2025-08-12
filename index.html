@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Code Amigos: A Aventura do Código Python</title>
+</head>
+<body data-theme="light" data-story-style="ninja">
+<div class="particles" id="particles"></div>
+<div class="container">
+  <h1 id="main-title">🌟 Code Amigos: A Aventura do Código Python</h1>
+  <div class="nav">
+
+  <select id="estiloSelect" onchange="mudarPagina()">
+    <option value="">Estilo Python</option>
+    <option value="html.html">Estilo: HTML5</option>
+    <option value="CSS.html">Estilo: CSS e HTML5</option>
+    <option value="editor.html">Estilo: Editor de Código</option>
+  </select>
+
+  <script>
+    function mudarPagina() {
+      var select = document.getElementById("estiloSelect");
+      var valor = select.value;
+      if (valor) {
+        window.location.href = valor;
+      }
+    }
+  </script>
+    <select id="sala-nav" onchange="scrollToSala(this.value)">
+      <option value="">Escolha uma Sala...</option>
+      <option value="sala1">Sala 1: <span class="sala-title">Mostrar Mensagens</span></option>
+      <option value="sala2">Sala 2: <span class="sala-title">Guardar Valores</span></option>
+      <option value="sala3">Sala 3: <span class="sala-title">Perguntar ao Usuário</span></option>
+      <option value="sala4">Sala 4: <span class="sala-title">Tipos de Valores</span></option>
+      <option value="sala5">Sala 5: <span class="sala-title">Fazer Cálculos</span></option>
+      <option value="sala6">Sala 6: <span class="sala-title">Tomar Decisões</span></option>
+      <option value="sala7">Sala 7: <span class="sala-title">Repetir Ações</span></option>
+      <option value="sala8">Sala 8: <span class="sala-title">Listas de Itens</span></option>
+      <option value="sala9">Sala 9: <span class="sala-title">Calculadora Mágica</span></option>
+      <option value="sala10">Sala 10: <span class="sala-title">Repetir com Condição</span></option>
+      <option value="sala11">Sala 11: <span class="sala-title">Criar Feitiços</span></option>
+      <option value="sala12">Sala 12: <span class="sala-title">Livros de Informações</span></option>
+      <option value="sala13">Sala 13: <span class="sala-title">Proteger o Código</span></option>
+      <option value="sala14">Sala 14: <span class="sala-title">Calculadora Estelar</span></option>
+    </select>
+    <button class="reset-all-btn" onclick="resetAll()">Recomeçar Aventura</button>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Mudar tema"><span class="theme-icon"></span> Tema</button>
+  </div>
+  <div class="progress-bar">
+    <div class="progress" id="progress"></div>
+    <div class="milestone" style="left: 25%;"><span class="milestone-label">Iniciante</span></div>
+    <div class="milestone" style="left: 50%;"><span class="milestone-label">Aprendiz</span></div>
+    <div class="milestone" style="left: 75%;"><span class="milestone-label">Mestre</span></div>
+  </div>
+  <div class="score">Pontos: <span id="score">0</span>/32</div>
+  <div class="selo-tracker" id="selo-tracker"></div>
+  <p id="intro-text">👋 Olá, jovem ninja! Eu sou o <strong>Mestre Koda</strong>, seu guia na <strong>Aventura do Código Python</strong>. Aqui, você vai aprender a programar como um ninja, criando a <strong>Calculadora Estelar</strong>! Cada sala tem desafios simples e divertidos. Vamos começar? 🥷</p>
+
+  <h2 id="sala1">✨ Sala 1: <span class="sala-title">Mostrar Mensagens com print()</span></h2>
+  <p class="sala-desc">O comando <strong>print()</strong> é como um pergaminho ninja que mostra mensagens na tela. Veja como funciona:</p>
+  <pre><code>print("Oi, ninja!")  # Mostra: Oi, ninja!</code></pre>
+  <p><strong>Como usar:</strong> Coloque texto entre aspas (<code>" "</code>) ou números sem aspas dentro dos parênteses. Exemplo: <code>print(25)</code> mostra <code>25</code>.</p>
+  <div class="questao">
+    <p><strong>Desafio 1:</strong> O que aparece ao usar <code>print("Sou ninja!")</code>?</p>
+    <input type="text" id="q1" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q1', 'Sou ninja!', 'Escreva o texto exato, sem aspas.', 'msg1', 'sala1')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg1', 'Olhe dentro das aspas. É isso que aparece!')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q1', 'msg1')">Limpar</button>
+    <p id="msg1" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 2:</strong> O que aparece ao usar <code>print(30)</code>?</p>
+    <input type="text" id="q2" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q2', '30', 'Digite o número exato.', 'msg2', 'sala1')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg2', 'Números aparecem como estão, sem aspas.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q2', 'msg2')">Limpar</button>
+    <p id="msg2" class="feedback"></p>
+  </div>
+  <p class "sala-conclusion">🎉 <strong>Ótimo trabalho!</strong> Você aprendeu a mostrar mensagens. Vamos para a próxima sala! 🚪</p>
+
+  <h2 id="sala2">📦 Sala 2: <span class="sala-title">Guardar Valores em Variáveis</span></h2>
+  <p class="sala-desc"><strong>Variáveis</strong> são como bolsas ninja onde guardamos coisas, como números ou textos. Veja:</p>
+  <pre><code>moedas = 50
+print(moedas)  # Mostra: 50</code></pre>
+  <p><strong>Como usar:</strong> Use <code>=</code> para guardar algo. Exemplo: <code>nome = "Koda"</code> guarda o texto "Koda".</p>
+  <div class="questao">
+    <p><strong>Desafio 3:</strong> O que aparece?
+<pre><code>pontos = 90
+print(pontos)</code></pre>
+    </p>
+    <input type="text" id="q3" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q3', '90', 'Mostra o valor guardado.', 'msg3', 'sala2')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg3', 'A variável pontos guarda 90. O print mostra isso!')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q3', 'msg3')">Limpar</button>
+    <p id="msg3" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 4:</strong> O que aparece?
+<pre><code>ninja = "Zoe"
+print(ninja)</code></pre>
+    </p>
+    <input type="text" id="q4" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q4', 'Zoe', 'Mostra o texto guardado.', 'msg4', 'sala2')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg4', 'O print mostra o texto dentro das aspas guardado em ninja.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q4', 'msg4')">Limpar</button>
+    <p id="msg4" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Perfeito!</strong> Você sabe guardar valores. Continue, ninja! 🥷</p>
+
+  <h2 id="sala3">🗣️ Sala 3: <span class="sala-title">Perguntar ao Usuário com input()</span></h2>
+  <p class="sala-desc">O <strong>input()</strong> é como um ninja ouvindo respostas. Ele pergunta algo e guarda o que o usuário digita. Veja:</p>
+  <pre><code>nome = input("Qual seu nome? ")
+print("Oi, " + nome)</code></pre>
+  <p><strong>Como usar:</strong> O <code>input()</code> mostra uma pergunta e guarda texto. Use <code>+</code> para juntar textos.</p>
+  <div class="questao">
+    <p><strong>Desafio 5:</strong> Se o usuário digita <code>5</code>, qual o tipo de dado do <code>input()</code>?</p>
+    <input type="text" id="q5" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q5', 'str', 'Sempre é texto.', 'msg5', 'sala3')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg5', 'Mesmo se digitar um número, o input guarda como texto (str).')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q5', 'msg5')">Limpar</button>
+    <p id="msg5" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 6:</strong> Se o usuário digitar <code>Luna</code>, o que aparece?
+<pre><code>nome = input("Seu nome: ")
+print("Ninja: " + nome)</code></pre>
+    </p>
+    <input type="text" id="q6" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q6', 'Ninja: Luna', 'Junta o texto com o nome.', 'msg6', 'sala3')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg6', 'O print junta Ninja: com o nome digitado. Tente juntar os textos!')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q6', 'msg6')">Limpar</button>
+    <p id="msg6" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Boa, ninja!</strong> Você sabe conversar com o usuário. Vamos adiante! 🚀</p>
+
+  <h2 id="sala4">🧪 Sala 4: <span class="sala-title">Tipos de Valores</span></h2>
+  <p class="sala-desc">Valores no Python têm <strong>tipos</strong>, como diferentes armas ninja. Veja os principais:</p>
+  <pre><code>numero = 10       # int: número inteiro
+decimal = 3.5     # float: número com decimais
+texto = "Ninja"   # str: texto
+logico = True     # bool: verdadeiro ou falso</code></pre>
+  <p><strong>Como usar:</strong> Cada tipo tem um papel. Use <code>type(10)</code> para ver o tipo (retorna <code>int</code>).</p>
+  <div class="questao">
+    <p><strong>Desafio 7:</strong> Qual o tipo de <code>4.2</code>?</p>
+    <input type="text" id="q7" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q7', 'float', 'Números com decimais são float.', 'msg7', 'sala4')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg7', 'Números com ponto, como 4.2, são do tipo float.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q7', 'msg7')">Limpar</button>
+    <p id="msg7" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 8:</strong> Qual o tipo de <code>"Koda"</code>?</p>
+    <input type="text" id="q8" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q8', 'str', 'Textos são str.', 'msg8', 'sala4')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg8', 'Qualquer coisa entre aspas é um texto (str).')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q8', 'msg8')">Limpar</button>
+    <p id="msg8" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 9:</strong> Qual o tipo de <code>True</code>?</p>
+    <input type="text" id="q9" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q9', 'bool', 'Verdadeiro ou falso é bool.', 'msg9', 'sala4')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg9', 'True é um valor lógico, chamado bool.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q9', 'msg9')">Limpar</button>
+    <p id="msg9" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Você é demais!</strong> Agora você conhece os tipos de valores. Próxima sala! 🧪</p>
+
+  <h2 id="sala5">🔢 Sala 5: <span class="sala-title">Fazer Cálculos</span></h2>
+  <p class="sala-desc">Use <strong>operações matemáticas</strong> como golpes ninja para calcular! Veja:</p>
+  <pre><code>print(4 + 2)   # Mostra: 6
+print(8 / 2)   # Mostra: 4.0
+print(3 ** 2)  # Mostra: 9</code></pre>
+  <p><strong>Como usar:</strong> <code>+</code> soma, <code>-</code> subtrai, <code>*</code> multiplica, <code>/</code> divide, <code>**</code> faz potências.</p>
+  <div class="questao">
+    <p><strong>Desafio 10:</strong> Quanto é <code>5 + 3</code>?</p>
+    <input type="text" id="q10" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q10', '8', 'Some os números.', 'msg10', 'sala5')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg10', 'Soma: 5 + 3 = ? Tente calcular!')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q10', 'msg10')">Limpar</button>
+    <p id="msg10" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 11:</strong> Quanto é <code>10 / 2</code>?</p>
+    <input type="text" id="q11" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q11', '5', 'Divisão simples.', 'msg11', 'sala5')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg11', 'Divide: 10 ÷ 2 = ? Experimente!')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q11', 'msg11')">Limpar</button>
+    <p id="msg11" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 12:</strong> Quanto é <code>2 ** 3</code>?</p>
+    <input type="text" id="q12" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q12', '8', 'Potência: 2 ao cubo.', 'msg12', 'sala5')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg12', 'Potência: 2 * 2 * 2 = ? Calcule!')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q12', 'msg12')">Limpar</button>
+    <p id="msg12" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Calculadora ninja!</strong> Você domina os cálculos. Vamos continuar! 🔢</p>
+
+  <h2 id="sala6">🚪 Sala 6: <span class="sala-title">Tomar Decisões com if/else</span></h2>
+  <p class="sala-desc">Use <strong>if</strong> e <strong>else</strong> para escolher caminhos, como um ninja decidindo sua missão. Veja:</p>
+  <pre><code>energia = 60
+if energia > 50:
+    print("Pronto!")
+else:
+    print("Recarregue!")</code></pre>
+  <p><strong>Como usar:</strong> O <code>if</code> testa algo (ex.: <code>energia > 50</code>). Se for verdade, faz uma coisa; senão, faz outra no <code>else</code>.</p>
+  <div class="questao">
+    <p><strong>Desafio 13:</strong> O que aparece?
+<pre><code>if 8 > 10:
+    print("Maior")
+else:
+    print("Menor")</code></pre>
+    </p>
+    <input type="text" id="q13" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q13', 'Menor', 'Compare os números.', 'msg13', 'sala6')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg13', 'É 8 maior que 10? Se não, o else roda.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q13', 'msg13')">Limpar</button>
+    <p id="msg13" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 14:</strong> O que aparece?
+<pre><code>numero = 4
+if numero % 2 == 0:
+    print("Par")
+else:
+    print("Ímpar")</code></pre>
+    </p>
+    <input type="text" id="q14" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q14', 'Par', '4 é divisível por 2.', 'msg14', 'sala6')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg14', 'Divida 4 por 2. O resto é 0? Então é par!')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q14', 'msg14')">Limpar</button>
+    <p id="msg14" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Escolhas perfeitas!</strong> Você decide como um ninja. Próxima sala! 🚪</p>
+
+  <h2 id="sala7">🔄 Sala 7: <span class="sala-title">Repetir Ações com for</span></h2>
+  <p class="sala-desc">O <strong>for</strong> repete ações, como treinar golpes ninja várias vezes. Veja:</p>
+  <pre><code>for i in range(3):
+    print("Golpe!")  # Mostra 3 vezes</code></pre>
+  <p><strong>Como usar:</strong> O <code>range(3)</code> conta de 0 a 2, repetindo o código para cada número.</p>
+  <div class="questao">
+    <p><strong>Desafio 15:</strong> Quantas vezes aparece "Ataque!"?
+<pre><code>for i in range(4):
+    print("Ataque!")</code></pre>
+    </p>
+    <input type="text" id="q15" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q15', '4', 'Conta as repetições.', 'msg15', 'sala7')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg15', 'O range(4) faz o print rodar 4 vezes. Conte!')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q15', 'msg15')">Limpar</button>
+    <p id="msg15" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 16:</strong> O que aparece?
+<pre><code>for i in range(3):
+    print(i)</code></pre>
+    </p>
+    <input type="text" id="q16" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q16', '0 1 2', 'Mostra os números do range.', 'msg16', 'sala7')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg16', 'O range(3) mostra 0, 1, 2. Escreva na ordem!')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q16', 'msg16')">Limpar</button>
+    <p id="msg16" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Repetições ninja!</strong> Você treina como mestre. Vamos adiante! 🔄</p>
+
+  <h2 id="sala8">📜 Sala 8: <span class="sala-title">Listas de Itens</span></h2>
+  <p class="sala-desc"><strong>Listas</strong> são como mochilas ninja para guardar vários itens. Veja:</p>
+  <pre><code>itens = ["Kunai", "Shuriken", "Espada"]
+print(itens[0])  # Mostra: Kunai</code></pre>
+  <p><strong>Como usar:</strong> Crie com <code>[]</code>. Pegue itens com números (índices), começando do 0.</p>
+  <div class="questao">
+    <p><strong>Desafio 17:</strong> O que aparece?
+<pre><code>armas = ["Arco", "Flecha", "Lança"]
+print(armas[1])</code></pre>
+    </p>
+    <input type="text" id="q17" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q17', 'Flecha', 'Índice 1 é o segundo item.', 'msg17', 'sala8')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg17', 'Índice 1 pega o segundo item da lista. Qual é?')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q17', 'msg17')">Limpar</button>
+    <p id="msg17" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 18:</strong> Quantos itens tem <code>["Sol", "Lua", "Estrela"]</code>?</p>
+    <input type="text" id="q18" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q18', '3', 'Conte os itens.', 'msg18', 'sala8')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg18', 'Conte cada item na lista: Sol, Lua, Estrela.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q18', 'msg18')">Limpar</button>
+    <p id="msg18" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Lista perfeita!</strong> Você organiza como um ninja. Próxima sala! 📜</p>
+
+  <h2 id="sala9">🛠️ Sala 9: <span class="sala-title">Calculadora Mágica</span></h2>
+  <p class="sala-desc">Crie uma <strong>calculadora</strong> usando números do usuário! Veja:</p>
+  <pre><code>n1 = int(input("Digite um número: "))
+n2 = int(input("Outro número: "))
+print("Soma:", n1 + n2)</code></pre>
+  <p><strong>Como usar:</strong> O <code>int()</code> transforma texto do <code>input()</code> em número para calcular.</p>
+  <div class="questao">
+    <p><strong>Desafio 19:</strong> Se o usuário digitar <code>6</code> e <code>2</code>, o que aparece?
+<pre><code>n1 = int(input("Número 1: "))
+n2 = int(input("Número 2: "))
+print("Soma:", n1 + n2)</code></pre>
+    </p>
+    <input type="text" id="q19" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q19', 'Soma: 8', 'Some 6 e 2.', 'msg19', 'sala9')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg19', 'Some 6 + 2 e junte com Soma: .')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q19', 'msg19')">Limpar</button>
+    <p id="msg19" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 20:</strong> Qual é o símbolo da subtração?</p>
+    <input type="text" id="q20" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q20', '-', 'Símbolo para subtrair.', 'msg20', 'sala9')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg20', 'É o sinal de menos, como em 5 - 2.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q20', 'msg20')">Limpar</button>
+    <p id="msg20" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Calculadora pronta!</strong> Você é um ninja dos números. Vamos adiante! 🛠️</p>
+
+  <h2 id="sala10">🌪️ Sala 10: <span class="sala-title">Repetir com Condição com while</span></h2>
+  <p class="sala-desc">O <strong>while</strong> repete ações enquanto algo é verdade, como um redemoinho ninja. Veja:</p>
+  <pre><code>energia = 3
+while energia > 0:
+    print("Ataque!")
+    energia -= 1</code></pre>
+  <p><strong>Como usar:</strong> O <code>while</code> roda até a condição ser falsa. Use <code>-=</code> para diminuir valores.</p>
+  <div class="questao">
+    <p><strong>Desafio 21:</strong> Quantas vezes aparece "Pulo!"?
+<pre><code>cont = 3
+while cont > 0:
+    print("Pulo!")
+    cont -= 1</code></pre>
+    </p>
+    <input type="text" id="q21" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q21', '3', 'Conta até cont ser 0.', 'msg21', 'sala10')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg21', 'O loop roda enquanto cont > 0. Conte as vezes!')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q21', 'msg21')">Limpar</button>
+    <p id="msg21" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 22:</strong> O que aparece?
+<pre><code>n = 1
+while n <= 3:
+    print(n)
+    n += 1</code></pre>
+    </p>
+    <input type="text" id="q22" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q22', '1 2 3', 'Imprime até n ser 4.', 'msg22', 'sala10')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg22', 'Começa em 1 e soma 1 até chegar a 3. Liste os números!')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q22', 'msg22')">Limpar</button>
+    <p id="msg22" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Redemoinho ninja!</strong> Você domina o while. Próxima sala! 🌪️</p>
+
+  <h2 id="sala11">🔥 Sala 11: <span class="sala-title">Criar Feitiços com Funções</span></h2>
+  <p class="sala-desc"><strong>Funções</strong> são como feitiços ninja que você cria e usa quando quiser. Veja:</p>
+  <pre><code>def atacar():
+    print("Golpe ninja!")
+atacar()</code></pre>
+  <p><strong>Como usar:</strong> Use <code>def</code> para criar e chame com <code>()</code>. Funções podem usar valores e retornar resultados.</p>
+  <div class="questao">
+    <p><strong>Desafio 23:</strong> O que aparece?
+<pre><code>def saudar():
+    print("Oi, ninja!")
+saudar()</code></pre>
+    </p>
+    <input type="text" id="q23" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q23', 'Oi, ninja!', 'A função mostra o texto.', 'msg23', 'sala11')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg23', 'A função saudar() mostra o texto do print. Veja dentro!')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q23', 'msg23')">Limpar</button>
+    <p id="msg23" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 24:</strong> O que aparece?
+<pre><code>def dobro(n):
+    return n * 2
+print(dobro(5))</code></pre>
+    </p>
+    <input type="text" id="q24" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q24', '10', 'Multiplica 5 por 2.', 'msg24', 'sala11')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg24', 'A função dobro multiplica 5 por 2. Calcule!')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q24', 'msg24')">Limpar</button>
+    <p id="msg24" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Feitiço poderoso!</strong> Suas funções são incríveis. Vamos continuar! 🔥</p>
+
+  <h2 id="sala12">📚 Sala 12: <span class="sala-title">Livros de Informações</span></h2>
+  <p class="sala-desc"><strong>Dicionários</strong> guardam informações com chaves, como um livro ninja. Veja:</p>
+  <pre><code>ninja = {"nome": "Koda", "poder": 80}
+print(ninja["nome"])  # Mostra: Koda</code></pre>
+  <p><strong>Como usar:</strong> Crie com <code>{}</code> e pegue valores com chaves, como <code>ninja["poder"]</code>.</p>
+  <div class="questao">
+    <p><strong>Desafio 25:</strong> O que aparece?
+<pre><code>heroi = {"arma": "Espada", "nivel": 2}
+print(heroi["arma"])</code></pre>
+    </p>
+    <input type="text" id="q25" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q25', 'Espada', 'Acesse a chave arma.', 'msg25', 'sala12')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg25', 'A chave arma guarda Espada. Use heroi[arma]!')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q25', 'msg25')">Limpar</button>
+    <p id="msg25" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 26:</strong> O que aparece?
+<pre><code>heroi = {"nome": "Luna", "idade": 14}
+print(heroi["idade"])</code></pre>
+    </p>
+    <input type="text" id="q26" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q26', '14', 'Acesse a chave idade.', 'msg26', 'sala12')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg26', 'A chave idade guarda 14. Use heroi[idade]!')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q26', 'msg26')">Limpar</button>
+    <p id="msg26" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Livro mágico!</strong> Você domina os dicionários. Próxima sala! 📚</p>
+
+  <h2 id="sala13">🛡️ Sala 13: <span class="sala-title">Proteger o Código com try/except</span></h2>
+  <p class="sala-desc">Use <strong>try</strong> e <strong>except</strong> para proteger seu código de erros, como um escudo ninja. Veja:</p>
+  <pre><code>try:
+    numero = int(input("Digite um número: "))
+    print(numero * 2)
+except ValueError:
+    print("Apenas números!")</code></pre>
+  <p><strong>Como usar:</strong> O <code>try</code> tenta o código; se der erro, o <code>except</code> mostra uma mensagem.</p>
+  <div class="questao">
+    <p><strong>Desafio 27:</strong> Se o usuário digitar <code>abc</code>, o que aparece?
+<pre><code>try:
+    n = int(input("Número: "))
+    print(n)
+except ValueError:
+    print("Erro!")</code></pre>
+    </p>
+    <input type="text" id="q27" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q27', 'Erro!', 'Texto causa erro.', 'msg27', 'sala13')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg27', 'Se digitar texto em vez de número, o except roda.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q27', 'msg27')">Limpar</button>
+    <p id="msg27" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 28:</strong> Se o usuário digitar <code>3</code>, o que aparece?
+<pre><code>try:
+    n = int(input("Número: "))
+    print(n + 2)
+except ValueError:
+    print("Inválido!")</code></pre>
+    </p>
+    <input type="text" id="q28" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q28', '5', 'Soma 2 ao número.', 'msg28', 'sala13')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg28', 'Se digitar 3, soma 3 + 2. Qual o resultado?')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q28', 'msg28')">Limpar</button>
+    <p id="msg28" class="feedback"></p>
+  </div>
+  <p class="sala-conclusion">🎉 <strong>Escudo ninja!</strong> Seu código está protegido. Vamos para a final! 🛡️</p>
+
+  <h2 id="sala14">🌌 Sala 14: <span class="sala-title">Calculadora Estelar</span></h2>
+  <p class="sala-desc">Combine tudo para criar a <strong>Calculadora Estelar</strong>! Veja:</p>
+  <pre><code>def calcular(op, n1, n2):
+    if op == "+":
+        return n1 + n2
+    elif op == "-":
+        return n1 - n2
+    return "Operação errada"
+try:
+    op = input("Operação (+ ou -): ")
+    n1 = int(input("Número 1: "))
+    n2 = int(input("Número 2: "))
+    print("Resultado:", calcular(op, n1, n2))
+except ValueError:
+    print("Use números!")</code></pre>
+  <p><strong>Como usar:</strong> A função <code>calcular</code> usa <code>if</code> para somar ou subtrair. O <code>try</code> protege contra erros.</p>
+  <div class="questao">
+    <p><strong>Desafio 29:</strong> Se o usuário digitar <code>+</code>, <code>5</code>, e <code>3</code>, o que aparece?</p>
+    <input type="text" id="q29" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q29', 'Resultado: 8', 'Soma 5 e 3.', 'msg29', 'sala14')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg29', 'A função calcular soma 5 + 3. Escreva Resultado: e o total.')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q29', 'msg29')">Limpar</button>
+    <p id="msg29" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 30:</strong> Se o usuário digitar <code>*</code>, <code>4</code>, e <code>2</code>, o que aparece?</p>
+    <input type="text" id="q30" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q30', 'Operação errada', 'Apenas + e - funcionam.', 'msg30', 'sala14')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg30', 'A função só aceita + ou -. O que acontece com *?')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q30', 'msg30')">Limpar</button>
+    <p id="msg30" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 31:</strong> Se o usuário digitar <code>-</code>, <code>abc</code>, e <code>2</code>, o que aparece?</p>
+    <input type="text" id="q31" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q31', 'Use números!', 'Texto causa erro.', 'msg31', 'sala14')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg31', 'Se digitar texto, o try/except mostra uma mensagem. Qual é?')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q31', 'msg31')">Limpar</button>
+    <p id="msg31" class="feedback"></p>
+  </div>
+  <div class="questao">
+    <p><strong>Desafio 32:</strong> Qual palavra cria uma função?</p>
+    <input type="text" id="q32" placeholder="Digite a resposta">
+    <button onclick="checkAnswer('q32', 'def', 'Usada para funções.', 'msg32', 'sala14')">Enviar</button>
+    <button class="hint-btn" onclick="showHint('msg32', 'É a palavra que começa uma função, como def calcular().')">Dica</button>
+    <button class="reset-btn" onclick="resetAnswer('q32', 'msg32')">Limpar</button>
+    <p id="msg32" class="feedback"></p>
+  </div>
+  <p id="final-conclusion">🎉 <strong>Você é um mestre ninja!</strong> A Calculadora Estelar está pronta, e Mestre Koda está orgulhoso! Continue explorando o Python e criando aventuras! 🌌</p>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
