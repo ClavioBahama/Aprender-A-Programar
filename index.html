@@ -56,16 +56,16 @@
   </div>
   <div class="score">Pontos: <span id="score">0</span>/32</div>
   <div class="selo-tracker" id="selo-tracker"></div>
-  <p id="intro-text">👋 Olá, jovem ninja! Eu sou o <strong>Mestre Koda</strong>, seu guia na <strong>Aventura do Código Python</strong>. Aqui, você vai aprender a programar como um ninja, criando a <strong>Calculadora Estelar</strong>! Cada sala tem desafios simples e divertidos. Vamos começar? 🥷</p>
+  <p id="intro-text">👋 Olá, jovem ninja! Eu sou o <strong>Mestre Clavio</strong>, seu guia na <strong>Aventura do Código Python</strong>. Aqui, você vai aprender a programar como um ninja, criando a <strong>Calculadora Estelar</strong>! Cada sala tem desafios simples e divertidos. Vamos começar? 🥷</p>
 
   <h2 id="sala1">✨ Sala 1: <span class="sala-title">Mostrar Mensagens com print()</span></h2>
   <p class="sala-desc">O comando <strong>print()</strong> é como um pergaminho ninja que mostra mensagens na tela. Veja como funciona:</p>
   <pre><code>print("Oi, ninja!")  # Mostra: Oi, ninja!</code></pre>
   <p><strong>Como usar:</strong> Coloque texto entre aspas (<code>" "</code>) ou números sem aspas dentro dos parênteses. Exemplo: <code>print(25)</code> mostra <code>25</code>.</p>
   <div class="questao">
-    <p><strong>Desafio 1:</strong> O que aparece ao usar <code>print("Sou ninja!")</code>?</p>
+    <p><strong>Desafio 1:</strong> O que aparece ao usar <code>print("Unisave")</code>?</p>
     <input type="text" id="q1" placeholder="Digite a resposta">
-    <button onclick="checkAnswer('q1', 'Sou ninja!', 'Escreva o texto exato, sem aspas.', 'msg1', 'sala1')">Enviar</button>
+    <button onclick="checkAnswer('q1', 'Unisave', 'Escreva o texto exato, sem aspas.', 'msg1', 'sala1')">Enviar</button>
     <button class="hint-btn" onclick="showHint('msg1', 'Olhe dentro das aspas. É isso que aparece!')">Dica</button>
     <button class="reset-btn" onclick="resetAnswer('q1', 'msg1')">Limpar</button>
     <p id="msg1" class="feedback"></p>
@@ -78,31 +78,31 @@
     <button class="reset-btn" onclick="resetAnswer('q2', 'msg2')">Limpar</button>
     <p id="msg2" class="feedback"></p>
   </div>
-  <p class "sala-conclusion">🎉 <strong>Ótimo trabalho!</strong> Você aprendeu a mostrar mensagens. Vamos para a próxima sala! 🚪</p>
+  <p class= "sala-conclusion">🎉 <strong>Ótimo trabalho!</strong> Você aprendeu a mostrar mensagens. Vamos para a próxima sala! 🚪</p>
 
   <h2 id="sala2">📦 Sala 2: <span class="sala-title">Guardar Valores em Variáveis</span></h2>
   <p class="sala-desc"><strong>Variáveis</strong> são como bolsas ninja onde guardamos coisas, como números ou textos. Veja:</p>
   <pre><code>moedas = 50
 print(moedas)  # Mostra: 50</code></pre>
-  <p><strong>Como usar:</strong> Use <code>=</code> para guardar algo. Exemplo: <code>nome = "Koda"</code> guarda o texto "Koda".</p>
+  <p><strong>Como usar:</strong> Use <code>=</code> para guardar algo. Exemplo: <code>nome = "bahama-flix"</code> guarda o texto "bahama-flix ".</p>
   <div class="questao">
     <p><strong>Desafio 3:</strong> O que aparece?
-<pre><code>pontos = 90
+<pre><code>pontos = 15
 print(pontos)</code></pre>
     </p>
     <input type="text" id="q3" placeholder="Digite a resposta">
-    <button onclick="checkAnswer('q3', '90', 'Mostra o valor guardado.', 'msg3', 'sala2')">Enviar</button>
+    <button onclick="checkAnswer('q3', '15', 'Mostra o valor guardado.', 'msg3', 'sala2')">Enviar</button>
     <button class="hint-btn" onclick="showHint('msg3', 'A variável pontos guarda 90. O print mostra isso!')">Dica</button>
     <button class="reset-btn" onclick="resetAnswer('q3', 'msg3')">Limpar</button>
     <p id="msg3" class="feedback"></p>
   </div>
   <div class="questao">
     <p><strong>Desafio 4:</strong> O que aparece?
-<pre><code>ninja = "Zoe"
+<pre><code>ninja = "Code"
 print(ninja)</code></pre>
     </p>
     <input type="text" id="q4" placeholder="Digite a resposta">
-    <button onclick="checkAnswer('q4', 'Zoe', 'Mostra o texto guardado.', 'msg4', 'sala2')">Enviar</button>
+    <button onclick="checkAnswer('q4', 'Code', 'Mostra o texto guardado.', 'msg4', 'sala2')">Enviar</button>
     <button class="hint-btn" onclick="showHint('msg4', 'O print mostra o texto dentro das aspas guardado em ninja.')">Dica</button>
     <button class="reset-btn" onclick="resetAnswer('q4', 'msg4')">Limpar</button>
     <p id="msg4" class="feedback"></p>
@@ -123,12 +123,12 @@ print("Oi, " + nome)</code></pre>
     <p id="msg5" class="feedback"></p>
   </div>
   <div class="questao">
-    <p><strong>Desafio 6:</strong> Se o usuário digitar <code>Luna</code>, o que aparece?
+    <p><strong>Desafio 6:</strong> Se o usuário digitar <code>Clayne</code>, o que aparece?
 <pre><code>nome = input("Seu nome: ")
 print("Ninja: " + nome)</code></pre>
     </p>
     <input type="text" id="q6" placeholder="Digite a resposta">
-    <button onclick="checkAnswer('q6', 'Ninja: Luna', 'Junta o texto com o nome.', 'msg6', 'sala3')">Enviar</button>
+    <button onclick="checkAnswer('q6', 'Ninja: Clayne', 'Junta o texto com o nome.', 'msg6', 'sala3')">Enviar</button>
     <button class="hint-btn" onclick="showHint('msg6', 'O print junta Ninja: com o nome digitado. Tente juntar os textos!')">Dica</button>
     <button class="reset-btn" onclick="resetAnswer('q6', 'msg6')">Limpar</button>
     <p id="msg6" class="feedback"></p>
@@ -151,7 +151,7 @@ logico = True     # bool: verdadeiro ou falso</code></pre>
     <p id="msg7" class="feedback"></p>
   </div>
   <div class="questao">
-    <p><strong>Desafio 8:</strong> Qual o tipo de <code>"Koda"</code>?</p>
+    <p><strong>Desafio 8:</strong> Qual o tipo de <code>"Code"</code>?</p>
     <input type="text" id="q8" placeholder="Digite a resposta">
     <button onclick="checkAnswer('q8', 'str', 'Textos são str.', 'msg8', 'sala4')">Enviar</button>
     <button class="hint-btn" onclick="showHint('msg8', 'Qualquer coisa entre aspas é um texto (str).')">Dica</button>
